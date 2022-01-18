@@ -87,9 +87,9 @@ public class DayPanel extends JPanel {
         // day number
         dayTopPanel.add(getStyledDayNumber(getDayNumber()));
 
-        viewAppointmentsButton = new JButton("View");
+        viewAppointmentsButton = new JButton("Vista ");
         viewAppointmentsButton.addActionListener(new viewAppointmentsButtonHandler());
-        addAppointmentsButton = new JButton("Add");
+        addAppointmentsButton = new JButton("Agregar");
         addAppointmentsButton.addActionListener(new addAppointmentsButtonHandler());
         viewAppointmentsButton.setOpaque(false);
         addAppointmentsButton.setOpaque(false);
