@@ -10,6 +10,7 @@ import java.util.logging.Logger;
  * A wrapper class to make database actions easier to write.
  * 
  // Esta es mi agenda 
+  * esta es otro cambio
  */
 public class DatabaseConnection {
     private static final Logger LOGGER;
