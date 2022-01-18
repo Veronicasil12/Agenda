@@ -148,7 +148,7 @@ public class DayDetailPanel extends JPanel {
                 title.setBorder(spacingBorder);
                 title.setFont(new Font("Arial", Font.BOLD, 14));
 
-                JButton deleteButton = new JButton("Delete");
+                JButton deleteButton = new JButton("Eliminar");
                 deleteButton.addActionListener(new deleteAppointmentHandler(appointment.appointmentId, appointment.title));
 
                 // create panel and add components
@@ -157,12 +157,12 @@ public class DayDetailPanel extends JPanel {
                 appointmentPanel.add(title);
                 appointmentPanel.add(time);
                 if (hasLocation) {
-                    JLabel location = new JLabel("Location: "+appointment.location);
+                    JLabel location = new JLabel("Lugar: "+appointment.location);
                     location.setBorder(spacingBorder);
                     appointmentPanel.add(location);
                 }
                 if (hasDescription) {
-                    JLabel description = new JLabel("Notes: "+appointment.description);
+                    JLabel description = new JLabel("Nota: "+appointment.description);
                     description.setBorder(spacingBorder);
                     appointmentPanel.add(description);
                 }
@@ -174,7 +174,7 @@ public class DayDetailPanel extends JPanel {
             }
         }
         else {
-            JLabel noResultsLabel = new JLabel("No events found");
+            JLabel noResultsLabel = new JLabel("No hay eventos");
             noResultsLabel.setFont(new Font("Arial", Font.PLAIN, 14));
             noResultsLabel.setBorder(new EmptyBorder(10, 12, 10, 12));
             appointmentsPanel.add(noResultsLabel);
@@ -204,7 +204,7 @@ public class DayDetailPanel extends JPanel {
          * @param e
          */
         public void actionPerformed(ActionEvent e) {
-            int dialogResult = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete the event \""+appointmentName+"\"?", "Delete event", JOptionPane.YES_NO_OPTION);
+            int dialogResult = JOptionPane.showConfirmDialog(null, "¿Estas seguro que quieres eliminar este evento \""+appointmentName+"\"?", "Eliminar evento", JOptionPane.YES_NO_OPTION);
 
             if (dialogResult == JOptionPane.YES_OPTION) {
                 // delete appointment
