@@ -1,7 +1,6 @@
 package edu.uam.main;
 
 import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 import edu.uam.vistas.MainFrame;
 
@@ -25,7 +24,7 @@ public class Main {
 		String temaDelSistema = null ;
 		
 		String temaWindows = null ;
-		String temaGTK = null ;
+		String temaGTK = null;
 		String temaDefault = null ;
 		
 		UIManager.LookAndFeelInfo [] lf = UIManager.getInstalledLookAndFeels() ;

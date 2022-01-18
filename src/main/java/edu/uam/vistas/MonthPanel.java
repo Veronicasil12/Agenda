@@ -74,7 +74,7 @@ public class MonthPanel extends JPanel {
      * Sets the month-panel's dimensions.
      */
     private void setMonthPanelDimensions() {
-        monthPanelWidth = (int) (calendarPanel.getCalendarPanelWidth() * 0.8);
+        monthPanelWidth = (int) (calendarPanel.getCalendarPanelWidth() * 0.78);
         monthPanelHeight = calendarPanel.mainPanel.mainFrame.getContentPane().getHeight() - calendarPanel.mainPanel.getTopPanelHeight();
     }
 

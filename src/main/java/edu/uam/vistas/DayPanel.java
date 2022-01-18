@@ -87,7 +87,7 @@ public class DayPanel extends JPanel {
         // day number
         dayTopPanel.add(getStyledDayNumber(getDayNumber()));
 
-        viewAppointmentsButton = new JButton("Vista ");
+        viewAppointmentsButton = new JButton("Vista");
         viewAppointmentsButton.addActionListener(new viewAppointmentsButtonHandler());
         addAppointmentsButton = new JButton("Agregar");
         addAppointmentsButton.addActionListener(new addAppointmentsButtonHandler());
@@ -167,7 +167,7 @@ public class DayPanel extends JPanel {
     private JLabel getStyledDayNumber(Integer dayNumber) {
         JLabel dayLabel = new JLabel(this.day.toString());
         dayLabel.setBorder(new EmptyBorder(10, 10, 10, 10));
-        dayLabel.setFont(new Font("Arial", Font.PLAIN, 16));
+        dayLabel.setFont(new Font("Arial", Font.PLAIN, 14));
         dayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
 
         // days that aren't in the active month

@@ -62,7 +62,7 @@ public class MainPanel extends JPanel {
         // buttons
         prevMonthButton = new JButton("<");
         prevMonthButton.addActionListener(new prevMonthButtonHandler());
-        currentMonthButton = new JButton("Today");
+        currentMonthButton = new JButton("Hoy");
         currentMonthButton.addActionListener(new currentMonthButtonHandler());
         nextMonthButton = new JButton(">");
         nextMonthButton.addActionListener(new nextMonthButtonHandler());
@@ -76,19 +76,19 @@ public class MainPanel extends JPanel {
         navigationButtonPanel.setLayout(new GridLayout());
 
         // weekday labels
-        sundayLabel = new JLabel("Sun", SwingConstants.RIGHT);
+        sundayLabel = new JLabel("Dom", SwingConstants.RIGHT);
         sundayLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        mondayLabel = new JLabel("Mon", SwingConstants.RIGHT);
+        mondayLabel = new JLabel("Lun", SwingConstants.RIGHT);
         mondayLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        tuesdayLabel = new JLabel("Tue", SwingConstants.RIGHT);
+        tuesdayLabel = new JLabel("Mar", SwingConstants.RIGHT);
         tuesdayLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        wednesdayLabel = new JLabel("Wed", SwingConstants.RIGHT);
+        wednesdayLabel = new JLabel("Mier", SwingConstants.RIGHT);
         wednesdayLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        thursdayLabel = new JLabel("Thu", SwingConstants.RIGHT);
+        thursdayLabel = new JLabel("Jue", SwingConstants.RIGHT);
         thursdayLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        fridayLabel = new JLabel("Fri", SwingConstants.RIGHT);
+        fridayLabel = new JLabel("Vie", SwingConstants.RIGHT);
         fridayLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        saturdayLabel = new JLabel("Sat", SwingConstants.RIGHT);
+        saturdayLabel = new JLabel("Sab", SwingConstants.RIGHT);
         saturdayLabel.setFont(new Font("Arial", Font.PLAIN, 16));
 
         // draw the active month and year label
@@ -293,9 +293,9 @@ public class MainPanel extends JPanel {
             else {
                 // show message dialog
                 JOptionPane.showMessageDialog(null,
-                    "The entered date invalid.\n" +
-                    "Allowed format: mm/dd/yyyy.",
-                "Invalid date", JOptionPane.ERROR_MESSAGE);
+                    "La fecha esta en un formato invalido\n" +
+                    "formato fecha: mm/dd/yyyy.",
+                "Formato invalido", JOptionPane.ERROR_MESSAGE);
              }
         }
     }

@@ -41,9 +41,9 @@ public class MainFrame extends JFrame {
         setFrameDimension(false);
         setTitle("Java Calendar");
         //setSize(frameWidth,frameHeight);
-        setSize(1300,800);
+        setSize(1200,800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setMinimumSize(new Dimension(1280, 800));
+        setMinimumSize(new Dimension(1000, 600));
 
         // add content to frame
         mainPanel = new MainPanel(MainFrame.this);
