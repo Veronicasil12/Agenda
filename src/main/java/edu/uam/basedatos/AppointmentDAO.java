@@ -17,7 +17,7 @@ import edu.uam.dominio.Appointment;
  * @see edu.uam.logicanegocio.CalendarManager
  */
 public class AppointmentDAO {
-    private DatabaseConnection connection = new DatabaseConnection("jdbc:mysql://127.0.0.1/java_calendar", "root","root");
+    private DatabaseConnection connection = new DatabaseConnection("jdbc:mysql://127.0.0.1/mi_agenda", "root","");
     /**
      * Gets all appointments of a given date.
      * @param date the date the appointments needs to be retrieved from
