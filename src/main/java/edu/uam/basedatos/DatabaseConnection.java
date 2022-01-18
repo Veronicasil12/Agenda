@@ -8,6 +8,8 @@ import java.util.logging.Logger;
 
 /**
  * A wrapper class to make database actions easier to write.
+ * 
+ // Esta es mi agenda 
  */
 public class DatabaseConnection {
     private static final Logger LOGGER;
