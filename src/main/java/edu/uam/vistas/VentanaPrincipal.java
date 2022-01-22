@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import com.sun.tools.javac.Main;
@@ -65,7 +66,7 @@ public class VentanaPrincipal {
 		lblNewLabel_1.setBounds(177, 80, 86, 14);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		password = new JTextField();
+		password = new JPasswordField();
 		password.setBounds(114, 113, 213, 20);
 		frame.getContentPane().add(password);
 		password.setColumns(10);
