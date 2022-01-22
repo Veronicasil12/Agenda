@@ -19,7 +19,13 @@ public class Main {
         MainFrame mainFrame = new MainFrame();
         mainFrame.init();
     }
-    private static void seleccionarGUI ()
+    
+    public Main () {
+    	seleccionarGUI ();
+        MainFrame mainFrame = new MainFrame();
+        mainFrame.init();
+    }
+    public static void seleccionarGUI ()
 	{
 		String temaDelSistema = null ;
 		

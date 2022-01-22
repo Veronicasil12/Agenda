@@ -35,7 +35,7 @@ public class AppointmentFrame extends JFrame {
      */
     private void initFrame(Integer offsetX, Integer offsetY){
         new JFrame();
-        setTitle("Add Event - "+String.format("%02d",(month+1))+"/"+String.format("%02d",day)+"/"+year);
+        setTitle("Añadir Evento - "+String.format("%02d",(month+1))+"/"+String.format("%02d",day)+"/"+year);
         setResizable(false);
         setSize(frameWidth,frameHeight);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

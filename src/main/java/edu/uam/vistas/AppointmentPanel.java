@@ -50,10 +50,10 @@ public class AppointmentPanel extends JPanel {
      */
     public void drawAppointmentPanel() {
         setLayout(new SpringLayout());
-        String[] labels = {"Name", "Location", "Start time", "End time", "Notes", ""};
+        String[] labels = {"Nombre", "Lugar", "Inicia", "Termina", "Nota", ""};
         int numPairs = labels.length;
 
-        JButton saveButton = new JButton("Save");
+        JButton saveButton = new JButton("Guardar");
         saveButton.setPreferredSize(new Dimension(200,40));
         saveButton.addActionListener(new saveAppointmentHandler());
 
