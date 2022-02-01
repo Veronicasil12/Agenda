@@ -14,7 +14,7 @@ public class Main {
      * Defaults constructor. Inits the main frame
      * @param args
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) {//duda
     	seleccionarGUI ();
         MainFrame mainFrame = new MainFrame();
         mainFrame.init();

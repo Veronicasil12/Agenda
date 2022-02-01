@@ -11,7 +11,7 @@ import java.sql.Time;
  * @see edu.uam.logicanegocio.CalendarManager
  */
 
-public class Appointment {
+public class Appointment {//duda
     public Integer appointmentId;
     public String title, description, location;
     public Date date;

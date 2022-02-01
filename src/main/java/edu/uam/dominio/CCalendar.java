@@ -26,7 +26,7 @@ public class CCalendar {
     /**
      * Inits a new calendar
      */
-    void initCalendar() {
+    void initCalendar() {//duda si son obetetos o variables declaradas
         year = new CYear();
         month = new CMonth();
         week = new CWeek();
@@ -36,15 +36,15 @@ public class CCalendar {
     /**
      * Updates the active date by moving one month earlier.
      */
-    public void toPrevMonth() {
+    public void toPrevMonth() {//duda
         if (month.getActiveMonth() == 0) {
-            // active month is januari, set new one to december
+            // el mes activo es enero, cree uno nuevo en dicienbre 
             month.setActiveMonth(11);
-            // set new year
+            // Establecer año nuevo 
             year.setActiveYear(year.getPreviousYear());
         }
         else {
-            // set previous month to active month
+            // Etablecer el mes anterior como mes activo.
             month.setActiveMonth(month.getPreviousMonth());
         }
 

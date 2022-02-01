@@ -24,7 +24,7 @@ public class CYear {
      */
     private void setYears() {
         setCurrentYear();
-        setActiveYear(getCurrentYear());
+        setActiveYear(getCurrentYear());//duda
         setPreviousYear();
         setNextYear();
     }
@@ -65,7 +65,7 @@ public class CYear {
      * Sets the active year.
      * @param year the year that needs to be active
      */
-    public void setActiveYear(Integer year) {
+    public void setActiveYear(Integer year) {//duda
         activeYear = year;
     }
 
@@ -86,7 +86,7 @@ public class CYear {
     /**
      * Sets the current year.
      */
-    public void setCurrentYear() {
+    public void setCurrentYear() {//duda
         currentYear = Calendar.getInstance().get(Calendar.YEAR);
     }
 

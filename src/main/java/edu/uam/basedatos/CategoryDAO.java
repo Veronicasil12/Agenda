@@ -1,4 +1,4 @@
-package edu.uam.basedatos;
+package edu.uam.basedatos;//duda
 
 /**
  * <code>CategoryDAO</code> handles database requests that are related to <code>Category</code>.

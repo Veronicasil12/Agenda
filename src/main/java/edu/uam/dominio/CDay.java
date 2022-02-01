@@ -66,7 +66,7 @@ public class CDay {
      * @param day the day that needs to be active
      * @param monthDays the total days of the month
      */
-    public void setActiveDay(Integer day, Integer monthDays) {
+    public void setActiveDay(Integer day, Integer monthDays) {//duda
         activeDay = day;
         if (monthDays != null) {
             if (activeDay > monthDays) {
@@ -88,7 +88,7 @@ public class CDay {
     /**
      * Sets the next daym based on the active day.
      */
-    public void setNextDay() {
+    public void setNextDay() {//duda
         nextDay = activeDay+1;
     }
 

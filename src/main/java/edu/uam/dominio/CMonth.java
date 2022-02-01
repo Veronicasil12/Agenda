@@ -90,7 +90,7 @@ public class CMonth {
     /**
      * Sets the current month.
      */
-    public void setCurrentMonth() {
+    public void setCurrentMonth() {//duda
         currentMonth = Calendar.getInstance().get(Calendar.MONTH);
     }
 
@@ -98,7 +98,7 @@ public class CMonth {
      * Sets the active month.
      * @param month the month that needs to be active
      */
-    public void setActiveMonth(Integer month) {
+    public void setActiveMonth(Integer month) {//duda
         if (month > 11) {
             activeMonth = 11;
         }
@@ -115,7 +115,7 @@ public class CMonth {
      * @param month the month as an integer (zero-based)
      * @return the month name as a string
      */
-    public String getMonthName(Integer month) {
+    public String getMonthName(Integer month) {//duda
         return new DateFormatSymbols().getMonths()[month];
     }
 
@@ -125,7 +125,7 @@ public class CMonth {
      * @param year the year the month is in
      * @return
      */
-    public Integer getDayCount(Integer month, Integer year) {
+    public Integer getDayCount(Integer month, Integer year) {//duda
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.DATE, 1);
         calendar.set(Calendar.MONTH, month);
@@ -139,7 +139,7 @@ public class CMonth {
      * @param year the year the month is in
      * @return the first weekday of the month, zero based
      */
-    public Integer getFirstWeekDay(Integer month, Integer year) {
+    public Integer getFirstWeekDay(Integer month, Integer year) {//duda
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.DATE, 1);
         calendar.set(Calendar.MONTH, month);

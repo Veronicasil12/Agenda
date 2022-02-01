@@ -26,7 +26,7 @@ public class CWeek {
      */
     private void setWeeks() {
         setCurrentWeek();
-        setActiveWeek(currentWeek);
+        setActiveWeek(currentWeek);//duda
         setPreviousWeek();
         setNextWeek();
     }
@@ -81,7 +81,7 @@ public class CWeek {
      * Sets the current week.
      */
     public void setCurrentWeek() {
-        currentWeek = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);
+        currentWeek = Calendar.getInstance().get(Calendar.WEEK_OF_YEAR);//duda
     }
 
     /**
@@ -109,7 +109,7 @@ public class CWeek {
      * @param date the date the weekday needs to be retrieved
      * @return the weekday as a string
      */
-    public String getWeekDayName(Date date) {
+    public String getWeekDayName(Date date) {//duda
         return new SimpleDateFormat("EEEE").format(date);
     }
 

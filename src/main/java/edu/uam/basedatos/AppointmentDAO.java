@@ -17,26 +17,26 @@ import edu.uam.dominio.Appointment;
  * @see edu.uam.logicanegocio.CalendarManager
  */
 public class AppointmentDAO {
-    private DatabaseConnection connection = new DatabaseConnection("jdbc:mysql://127.0.0.1/mi_agenda", "root","");
+    private DatabaseConnection connection = new DatabaseConnection("jdbc:mysql://127.0.0.1/mi_agenda", "root","");//conexion a la base de datos
     /**
      * Gets all appointments of a given date.
      * @param date the date the appointments needs to be retrieved from
      */
-    public ArrayList<Appointment> getAppointments(Date date) {
+    public ArrayList<Appointment> getAppointments(Date date) {//Forma de la fecha 
         ArrayList<Appointment> appointments = new ArrayList<Appointment>();
         String dateString = new SimpleDateFormat("yyyy-MM-dd").format(date);
 
         if(date != null) {
-            // First open a database connnection
+            // Primero abrimos la conexion a la base de datos
             if (connection.open()) {
-                // If a connection was successfully setup, execute the SELECT statement.
+                // Si una conexion se configuro con exito. Ejecutar Select*
                 ResultSet resultset = connection.executeQuery(
-                        "SELECT * FROM appointment WHERE date = '" + dateString + "' ORDER BY startTime;");
+                        "SELECT * FROM appointment WHERE date = '" + dateString + "' ORDER BY startTime;");//duda
 
                 if (resultset != null) {
                     try {
-                        while (resultset.next()) {
-                            // get fields
+                        while (resultset.next()) {//duda
+                            // obtener campos
                             Integer appointmentId = resultset.getInt("id");
                             String title = resultset.getString("title");
                             String description = resultset.getString("description");
@@ -44,16 +44,16 @@ public class AppointmentDAO {
                             Time startTime = resultset.getTime("startTime");
                             Time endTime = resultset.getTime("endTime");
 
-                            // add appointment to list
+                            // Añadir cita a la lista 
                             Appointment appointment = new Appointment(appointmentId, title, description, location, date, startTime, endTime);
                             appointments.add(appointment);
                         }
-                    } catch (SQLException e) {
+                    } catch (SQLException e) {//problema con la base de datos 
                         System.out.println(e);
                     }
                 }
 
-                // We had a database connection opened. Since we're finished,
+                // We had a database connection opened. Since we're finished, duda
                 // we need to close it.
                 connection.close();
             }
@@ -75,9 +75,9 @@ public class AppointmentDAO {
         List<Integer> resultIds = new ArrayList<Integer>();
 
         if (date != null && title != null && date != null && startTime != null && endTime != null) {
-            // First open a database connnection
+            // primero se abre la conexion a la base de datos 
             if (connection.open()) {
-                // If a connection was successfully setup, execute the statement.
+                // si una conexion se configuro con exito. Ejecute la declaracion
                 resultIds = connection.executePrepared("INSERT INTO appointment (title, description, location, date, startTime, endTime) VALUES(?,?,?,?,?,?);",
                         title,description,location,date,startTime,endTime);
             }
@@ -97,9 +97,9 @@ public class AppointmentDAO {
     public boolean deleteAppointment(Integer appointmentId) {
         boolean result = false;
         if (appointmentId != null) {
-            // First open a database connnection
+            // Primero abra una conexion de base datos
             if (connection.open()) {
-                // If a connection was successfully setup, execute the statement.
+                // si una conexion se configuro con exito. Ejecute la declaracion
                 result = connection.execute("DELETE FROM appointment WHERE id = '"+appointmentId+"';");
             }
 

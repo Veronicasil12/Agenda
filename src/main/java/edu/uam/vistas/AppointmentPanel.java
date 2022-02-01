@@ -21,7 +21,7 @@ import java.text.SimpleDateFormat;
  * @see AppointmentFrame
  * @see edu.uam.dominio.Appointment
  */
-public class AppointmentPanel extends JPanel {
+public class AppointmentPanel extends JPanel {//duda
 	private static final long serialVersionUID = 1L;
     private Date date;
     private JFrame appointmentFrame;
@@ -72,7 +72,7 @@ public class AppointmentPanel extends JPanel {
         }
 
         // lay out the panel
-        SpringUtilities.makeCompactGrid(this,
+        SpringUtilities.makeCompactGrid(this,//duda
             numPairs, 2, //rows, cols
             10, 10, //initX, initY
             10, 10 //xPad, yPad
@@ -83,7 +83,7 @@ public class AppointmentPanel extends JPanel {
      * List the textfields for use with the for-loop in <code>drawAppointments</code>.
      * @return ArrayList of textfields
      */
-    private ArrayList<JTextField> listTextFields() {
+    private ArrayList<JTextField> listTextFields() {//duda
         ArrayList<JTextField> textFieldList  = new ArrayList<>();
         textFieldList.add(nameTextField = new JTextField());
         textFieldList.add(locationTextField = new JTextField());
@@ -97,8 +97,8 @@ public class AppointmentPanel extends JPanel {
     /**
      * Shows an message dialog when the name of an event isn't filled in.
      */
-    private void showNameError() {
-       JOptionPane.showMessageDialog(null, "The name of the event must be filled in.", "Invalid name", JOptionPane.ERROR_MESSAGE);
+    private void showNameError() {//duda
+       JOptionPane.showMessageDialog(null, "El nombre del evento debe ser completado.", "Nombre invalido", JOptionPane.ERROR_MESSAGE);
     }
 
     /**
@@ -106,9 +106,9 @@ public class AppointmentPanel extends JPanel {
      */
     private void showTimeError() {
         JOptionPane.showMessageDialog(null,
-               "The start time or end time are invalid.\n" +
-               "Allowed format: (00 through 23) : (00 through 59).\n" +
-               "End time must be greater than start time.", "Invalid times",
+               "El tiempo inicial o el tiempo final es invalido.\n" +
+               "El formato permitido: (00 mediante 23) : (00 mediante 59).\n" +
+               "La hora final debe der mayor que la hora de inicio.", "Tiempos invalidos",
        JOptionPane.ERROR_MESSAGE);
     }
 
@@ -117,7 +117,7 @@ public class AppointmentPanel extends JPanel {
      * @param name the name of the event.
      */
     private void showSuccesMessage(String name) {
-        JOptionPane.showMessageDialog(null, "Your event \""+name+"\" is succesfully added.", "Event added", JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(null, "El evento \""+name+"\" ha sido agregado con exito.", "Evento agregado", JOptionPane.PLAIN_MESSAGE);
     }
 
     /**
@@ -126,7 +126,7 @@ public class AppointmentPanel extends JPanel {
      * @param timeType 0 or 1; startTime or endTime
      * @return true or false; validated and setted or not
      */
-    private Boolean setFormattedTime(String time, Integer timeType) {
+    private Boolean setFormattedTime(String time, Integer timeType) {//duda
         Boolean validated = true;
         Time formattedTime = new Time(new Date().getTime());
 
@@ -164,7 +164,7 @@ public class AppointmentPanel extends JPanel {
          * Opens new frame where a new appointment can be added.
          * @param e
          */
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(ActionEvent e) {//duda como se usa 
             Boolean validName = true;
             Boolean validTimes = true;
 

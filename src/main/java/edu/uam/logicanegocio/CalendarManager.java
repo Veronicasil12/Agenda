@@ -1,4 +1,4 @@
-package edu.uam.logicanegocio;
+package edu.uam.logicanegocio;//duda todo
 
 import edu.uam.basedatos.*;
 import edu.uam.dominio.Appointment;
