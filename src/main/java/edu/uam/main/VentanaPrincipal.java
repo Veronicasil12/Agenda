@@ -10,6 +10,8 @@ import javax.swing.JTextField;
 
 import com.sun.tools.javac.Main;
 
+import edu.uam.vistas.MainFrame;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.security.MessageDigest;
