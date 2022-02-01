@@ -1,22 +1,16 @@
-package edu.uam.dominio;
+package edu.uam.controlador;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;
 
-/**
- * <code>CMonth</code> contains methods and variables that are month-related.
- * It is mainly called by <code>CCalendar</code> and the <code>CalendarManager</code>.
- * @version 1.0
- * @see CCalendar
- * @see edu.uam.logicanegocio.CalendarManager
- */
-public class CMonth {
+
+public class CMes {
     private Integer activeMonth, prevMonth, nextMonth, currentMonth; // for now private
 
     /**
      * Contstructor. Sets the global month-variables.
      */
-    public CMonth() {
+    public CMes() {
         setMonths();
     }
 
@@ -30,41 +24,27 @@ public class CMonth {
         setNextMonth();
     }
 
-    /**
-     * Gets the previous month.
-     * @return the previous month
-     */
+    
     public Integer getPreviousMonth() {
         return prevMonth;
     }
 
-    /**
-     * Gets the next month.
-     * @return the next month
-     */
+   
     public Integer getNextMonth() {
         return nextMonth;
     }
 
-    /**
-     * Gets the current month.
-     * @return the current month
-     */
+    
     public Integer getCurrentMonth() {
         return currentMonth;
     }
 
-    /**
-     * Gets the active month.
-     * @return the active month
-     */
+    
     public Integer getActiveMonth() {
         return activeMonth;
     }
 
-    /**
-     * Sets the previous month, based on the current month.
-     */
+    
     public void setPreviousMonth() {
         if (activeMonth > 0) {
             prevMonth = activeMonth-1;
@@ -74,9 +54,7 @@ public class CMonth {
         }
     }
 
-    /**
-     * Sets the next month, based on the active month.
-     */
+   
     public void setNextMonth() {
         if (activeMonth < 11) {
             nextMonth = activeMonth+1;
@@ -87,18 +65,13 @@ public class CMonth {
 
     }
 
-    /**
-     * Sets the current month.
-     */
-    public void setCurrentMonth() {//duda
+    
+    public void setCurrentMonth() {
         currentMonth = Calendar.getInstance().get(Calendar.MONTH);
     }
 
-    /**
-     * Sets the active month.
-     * @param month the month that needs to be active
-     */
-    public void setActiveMonth(Integer month) {//duda
+   
+    public void setActiveMonth(Integer month) {
         if (month > 11) {
             activeMonth = 11;
         }
@@ -110,22 +83,13 @@ public class CMonth {
         }
     }
 
-    /**
-     * Gets to month name.
-     * @param month the month as an integer (zero-based)
-     * @return the month name as a string
-     */
-    public String getMonthName(Integer month) {//duda
-        return new DateFormatSymbols().getMonths()[month];
+    
+    public String getMonthName(Integer month) {
+        return new DateFormatSymbols().getMonths()[month];//Regresa el nombre del mes
     }
 
-    /**
-     * Gets the sum of days in a given month.
-     * @param month the month
-     * @param year the year the month is in
-     * @return
-     */
-    public Integer getDayCount(Integer month, Integer year) {//duda
+    
+    public Integer getDayCount(Integer month, Integer year) {//Regresa cuantos dias tiene un mes
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.DATE, 1);
         calendar.set(Calendar.MONTH, month);
@@ -133,13 +97,8 @@ public class CMonth {
         return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
     }
 
-    /**
-     * Gets the first weekday of the month.
-     * @param month the month
-     * @param year the year the month is in
-     * @return the first weekday of the month, zero based
-     */
-    public Integer getFirstWeekDay(Integer month, Integer year) {//duda
+    
+    public Integer getFirstWeekDay(Integer month, Integer year) {//Regresa el primer dia de la semana
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.DATE, 1);
         calendar.set(Calendar.MONTH, month);

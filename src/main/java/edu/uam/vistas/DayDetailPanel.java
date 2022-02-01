@@ -1,7 +1,7 @@
 package edu.uam.vistas;
 
-import edu.uam.dominio.Appointment;
-import edu.uam.logicanegocio.CalendarManager;
+import edu.uam.controlador.ControladorCitasBD;
+import edu.uam.controlador.ControladorCalendario;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 /**
- * The <code>DayDetailPanel</code> ensures the panel in which the details (appointments) of the active day will be placed.
+ * The <code>DayDetailPanel</code> ensures the panel in which the details (controladorCitasBDs) of the active day will be placed.
  * It is placed within <code>MainPanel</code>.
  * @version 1.0
  * @see MainPanel
@@ -23,8 +23,8 @@ public class DayDetailPanel extends JPanel {
     private Integer day, month, year;
     private Integer dayDetailPanelWidth, dayDetailPanelHeight;
     private MainPanel mainPanel;
-    private CalendarManager manager = new CalendarManager();
-    private ArrayList<Appointment> appointments;
+    private ControladorCalendario manager = new ControladorCalendario();
+    private ArrayList<ControladorCitasBD> controladorCitasBDs;
     private JScrollPane scrollPane;
 
     /**
@@ -35,7 +35,7 @@ public class DayDetailPanel extends JPanel {
         month = mainPanel.mainFrame.calendar.month.getActiveMonth();
         day = mainPanel.mainFrame.calendar.day.getActiveDay();
         year = mainPanel.mainFrame.calendar.year.getActiveYear();
-        appointments = manager.getAppointments(mainPanel.mainFrame.calendar.getDate(month,day,year));
+        controladorCitasBDs = manager.getAppointments(mainPanel.mainFrame.calendar.getDate(month,day,year));
 
         drawDayDetailPanel();
     }
@@ -97,7 +97,7 @@ public class DayDetailPanel extends JPanel {
         month = mainPanel.mainFrame.calendar.month.getActiveMonth();
         day = mainPanel.mainFrame.calendar.day.getActiveDay();
         year = mainPanel.mainFrame.calendar.year.getActiveYear();
-        appointments = manager.getAppointments(mainPanel.mainFrame.calendar.getDate(month,day,year));
+        controladorCitasBDs = manager.getAppointments(mainPanel.mainFrame.calendar.getDate(month,day,year));
 
         removeAll();
         drawDayDetailPanel();
@@ -121,35 +121,35 @@ public class DayDetailPanel extends JPanel {
         scrollPane.setBounds(0,mainPanel.getTopPanelHeight(),dayDetailPanelWidth, dayDetailPanelHeight - mainPanel.getTopPanelHeight());
         scrollPane.getVerticalScrollBar().setUnitIncrement(25);
 
-        Integer appointmentsSize = appointments.size();
+        Integer appointmentsSize = controladorCitasBDs.size();
 
         if(appointmentsSize > 0) {
-            for (Integer i = 0; i < appointments.size(); i++) {
-                Appointment appointment = appointments.get(i);
+            for (Integer i = 0; i < controladorCitasBDs.size(); i++) {
+                ControladorCitasBD controladorCitasBD = controladorCitasBDs.get(i);
 
                 Boolean hasLocation = true;
                 Boolean hasDescription = true;
-                if (appointment.location == null) {
+                if (controladorCitasBD.location == null) {
                     hasLocation = false;
                 }
-                if (appointment.description == null) {
+                if (controladorCitasBD.description == null) {
                     hasDescription = false;
                 }
 
                 // components
                 Border spacingBorder = new EmptyBorder(0, 6, 0, 6);
-                String startTime = appointment.startTime.toString();
+                String startTime = controladorCitasBD.startTime.toString();
                 startTime = startTime.substring(0, startTime.length() - 3);
-                String endTime = appointment.endTime.toString();
+                String endTime = controladorCitasBD.endTime.toString();
                 endTime = endTime.substring(0, endTime.length() - 3);
                 JLabel time = new JLabel(startTime+" - "+endTime);
                 time.setBorder(spacingBorder);
-                JLabel title = new JLabel(appointment.title);
+                JLabel title = new JLabel(controladorCitasBD.title);
                 title.setBorder(spacingBorder);
                 title.setFont(new Font("Arial", Font.BOLD, 14));
 
                 JButton deleteButton = new JButton("Eliminar");
-                deleteButton.addActionListener(new deleteAppointmentHandler(appointment.appointmentId, appointment.title));
+                deleteButton.addActionListener(new deleteAppointmentHandler(controladorCitasBD.appointmentId, controladorCitasBD.title));
 
                 // create panel and add components
                 JPanel appointmentPanel = new JPanel();
@@ -157,12 +157,12 @@ public class DayDetailPanel extends JPanel {
                 appointmentPanel.add(title);
                 appointmentPanel.add(time);
                 if (hasLocation) {
-                    JLabel location = new JLabel("Lugar: "+appointment.location);
+                    JLabel location = new JLabel("Lugar: "+controladorCitasBD.location);
                     location.setBorder(spacingBorder);
                     appointmentPanel.add(location);
                 }
                 if (hasDescription) {
-                    JLabel description = new JLabel("Nota: "+appointment.description);
+                    JLabel description = new JLabel("Nota: "+controladorCitasBD.description);
                     description.setBorder(spacingBorder);
                     appointmentPanel.add(description);
                 }

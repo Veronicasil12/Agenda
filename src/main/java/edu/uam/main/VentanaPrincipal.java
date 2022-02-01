@@ -1,4 +1,4 @@
-package edu.uam.vistas;
+package edu.uam.main;
 
 import java.awt.EventQueue;
 

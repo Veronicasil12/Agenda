@@ -1,21 +1,15 @@
-package edu.uam.dominio;
+package edu.uam.controlador;
 
 import java.util.Calendar;
 
-/**
- * <code>CDay</code> contains methods and variables that are day-related.
- * It is mainly called by <code>CCalendar</code> and the <code>CalendarManager</code>.
- * @version 1.0
- * @see CCalendar
- * @see edu.uam.logicanegocio.CalendarManager
- */
-public class CDay {
+
+public class CDia {
     private Integer activeDay, prevDay, nextDay, currentDay;
 
     /**
      * Constructor. Sets the global day-variables.
      */
-    public CDay() {
+    public CDia() {
         setDays();
     }
 
@@ -61,12 +55,8 @@ public class CDay {
         return activeDay;
     }
 
-    /**
-     * Sets the active day.
-     * @param day the day that needs to be active
-     * @param monthDays the total days of the month
-     */
-    public void setActiveDay(Integer day, Integer monthDays) {//duda
+    
+    public void setActiveDay(Integer day, Integer monthDays) {//Avisa cual es el activo 
         activeDay = day;
         if (monthDays != null) {
             if (activeDay > monthDays) {
@@ -88,7 +78,7 @@ public class CDay {
     /**
      * Sets the next daym based on the active day.
      */
-    public void setNextDay() {//duda
+    public void setNextDay() {
         nextDay = activeDay+1;
     }
 
@@ -96,7 +86,7 @@ public class CDay {
      * Sets the current day.
      */
     public void setCurrentDay() {
-        currentDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        currentDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);//Regresa el dia actual 
     }
 
 }

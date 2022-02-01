@@ -1,4 +1,4 @@
-package edu.uam.basedatos;
+package edu.uam.controlador;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -6,17 +6,12 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * A wrapper class to make database actions easier to write.
- * 
- // Esta es mi agenda 
-  * esta es otro cambio
- */
-public class DatabaseConnection {
+
+public class ConexionBaseDatos {
     private static final Logger LOGGER;
 
     static {
-        LOGGER = Logger.getLogger(DatabaseConnection.class.getName());
+        LOGGER = Logger.getLogger(ConexionBaseDatos.class.getName());
     }
 
     private final String connectionString;
@@ -24,24 +19,14 @@ public class DatabaseConnection {
     private final String password;
     private Connection connection;
 
-    /**
-     * Initializes a new DatabaseConnection instance using the specified connection string.
-     *
-     * @param connectionString The connection string to create the connection with.
-     * @param user             The user to create the connection with.
-     * @param password         The password to create the connection with.
-     */
-    public DatabaseConnection(String connectionString, String user, String password) {
+   
+    public ConexionBaseDatos(String connectionString, String user, String password) {
         this.connectionString = connectionString;
         this.user = user;
         this.password = password;
     }
 
-    /**
-     * Opens the connection.
-     *
-     * @return true if successful; otherwise, false.
-     */
+    
     public boolean open() {
         if (isOpen()) {
             return true;
@@ -56,10 +41,7 @@ public class DatabaseConnection {
         }
     }
 
-    /**
-     * Checks if the connection is currently open.
-     * @return true if open; otherwise, false.
-     */
+    
     public boolean isOpen() {
         if (connection == null) {
             return false;
@@ -73,10 +55,7 @@ public class DatabaseConnection {
         }
     }
 
-    /**
-     * Closes the connection.
-     * @return true if successful; otherwise, false.
-     */
+    
     public boolean close() {
         if (!isOpen()) {
             return true;
@@ -92,11 +71,7 @@ public class DatabaseConnection {
         }
     }
 
-    /**
-     * Executes SQL that does not return any results.
-     * @param sql The sql to be executed
-     * @return true if successful; otherwise, false.
-     */
+  
     public boolean execute(String sql) {
         try {
             Statement statement = connection.createStatement();
@@ -107,11 +82,7 @@ public class DatabaseConnection {
         }
     }
 
-    /**
-     * Executes SQL that does not return any results.
-     * @param sql The sql to be executed
-     * @return true if successful; otherwise, false.
-     */
+    
     public int[] executeBatch(String... sql) {
         try {
             Statement statement = connection.createStatement();
@@ -125,11 +96,7 @@ public class DatabaseConnection {
         }
     }
 
-    /**
-     * Executes an SQL query that returns results.
-     * @param sql The sql to be executed
-     * @return The result set returned by the query.
-     */
+    
     public ResultSet executeQuery(String sql) {
         try {
             Statement statement = connection.createStatement();
@@ -140,12 +107,7 @@ public class DatabaseConnection {
         }
     }
 
-    /**
-     * Creates and executes an SQL string by placing the specified items into the SQL format string and returns the generated keys.
-     * @param sqlFormat The SQL string to place the items in.
-     * @param items     The items to place into the SQL format string.
-     * @return The generated keys as an integer List.
-     */
+    
     public List<Integer> executePrepared(String sqlFormat, Object... items) {
         try {
             PreparedStatement statement = connection.prepareStatement(sqlFormat, Statement.RETURN_GENERATED_KEYS);
@@ -172,12 +134,7 @@ public class DatabaseConnection {
         }
     }
 
-    /**
-     * Creates and executes an SQL string for each set of items in the specified batch by placing the specified items into the SQL format string and returns the number of affected rows.
-     * @param sqlFormat The SQL string to place the items in.
-     * @param batch     The batch with item collections to place in the SQL string.
-     * @return The number of affected rows as an integer List.
-     */
+    
     public int[] executePreparedBatch(String sqlFormat, List<Object[]> batch) {
         try {
             PreparedStatement statement = connection.prepareStatement(sqlFormat);

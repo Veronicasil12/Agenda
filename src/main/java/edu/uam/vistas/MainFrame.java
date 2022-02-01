@@ -1,30 +1,23 @@
 package edu.uam.vistas;
 
-import edu.uam.dominio.CCalendar;
-import edu.uam.logicanegocio.CalendarManager;
+import edu.uam.controlador.CCalendario;
+import edu.uam.controlador.ControladorCalendario;
 
 import javax.swing.*; 
 import java.awt.*;
 
-/**
- * The <code>MainFrame</code> ensures the main window of the calendar application.
- * It is called by <code>edu.avans.library.main.Main</code>.
- * @version 1.0
- * @see edu.uam.main.Main
- */
+
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
     public Integer frameWidth, frameHeight;
     public MainPanel mainPanel;
-    public CCalendar calendar;
-    public CalendarManager manager;
+    public CCalendario calendar;
+    public ControladorCalendario manager;
 
-    /**
-     * Constructor. Calls the initialization of the frame, calendar and manager.
-     */
+    
     public MainFrame() {
-        calendar = new CCalendar();
-        manager = new CalendarManager();
+        calendar = new CCalendario();
+        manager = new ControladorCalendario();
     
     }
     /*
@@ -33,9 +26,7 @@ public class MainFrame extends JFrame {
     public void init() {
         initFrame();
     }
-    /**
-     * Inits the frame.
-     */
+    
     private void initFrame(){
         new JFrame();
         setFrameDimension(false);
@@ -58,26 +49,17 @@ public class MainFrame extends JFrame {
         setVisible(true);
     }
 
-    /**
-     * Gets the height of the frame.
-     * @return the height of the frame
-     */
+    
     public Integer getMainFrameHeight() {
         return frameHeight;
     }
 
-    /**
-     * Gets the width of the frame.
-     * @return the width of the frame
-     */
+    
     public Integer getMainFrameWidth() {
         return frameWidth;
     }
 
-    /**
-     * Sets the frame dimension variables.
-     * @param resized decides whether the frame dimensions are those of the users screen, or needed to be requested from the frame itself.
-     */
+    
     public void setFrameDimension(boolean resized) {
         if (resized) {
             // window is being resized

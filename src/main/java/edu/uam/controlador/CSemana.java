@@ -1,23 +1,23 @@
-package edu.uam.dominio;
+package edu.uam.controlador;
 
 import java.util.Calendar;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * <code>CWeek</code> contains methods and variables that are week-related.
- * It is mainly called by <code>CCalendar</code> and the <code>CalendarManager</code>.
+ * <code>CSemana</code> contains methods and variables that are week-related.
+ * It is mainly called by <code>CCalendario</code> and the <code>ControladorCalendario</code>.
 
- * @see edu.uam.logicanegocio.CalendarManager
+ * @see edu.uam.controlador.ControladorCalendario
  */
-public class CWeek {
+public class CSemana {
     private Integer activeWeek, prevWeek, nextWeek, currentWeek; // for now private
     private Calendar cal = Calendar.getInstance();
 
     /**
      * Contstructor. Sets the global month-variables.
      */
-    public CWeek() {
+    public CSemana() {
         setWeeks();
     }
 

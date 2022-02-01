@@ -2,7 +2,7 @@ package edu.uam.vistas;
 
 import javax.swing.*;
 
-import edu.uam.logicanegocio.CalendarManager;
+import edu.uam.controlador.ControladorCalendario;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,29 +14,17 @@ import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-/**
- * The <code>AppointmentPanel</code> ensures the panel of the <code>AppointmentFrame</code>.
- * Its shows the option to add an appointment and is placed within <code>AppointmentFrame</code>.
- * @version 1.0
- * @see AppointmentFrame
- * @see edu.uam.dominio.Appointment
- */
-public class AppointmentPanel extends JPanel {//duda
-	private static final long serialVersionUID = 1L;
+
+public class AppointmentPanel extends JPanel {
+
     private Date date;
     private JFrame appointmentFrame;
     private CalendarPanel calendarPanel;
     private JTextField nameTextField, locationTextField, startTimeTextField, endTimeTextField, notesTextField;
     private Time formattedStartTime, formattedEndTime;
-    private CalendarManager manager = new CalendarManager();
+    private ControladorCalendario manager = new ControladorCalendario();
 
-    /**
-     * Constructor. Sets the global variables and calls the draw method.
-     * @param month the month of the clicked daypanel
-     * @param day the day of the clicked daypanel
-     * @param year the year of the clicked daypanel
-     * @param calendarPanel the calendarpanel the clicked daypabel is part of, to have access to its (parents) methods
-     */
+    
     public AppointmentPanel(Integer month, Integer day, Integer year, CalendarPanel calendarPanel, JFrame appointmentFrame) {
         this.calendarPanel = calendarPanel;
         this.appointmentFrame = appointmentFrame;
@@ -45,9 +33,7 @@ public class AppointmentPanel extends JPanel {//duda
         drawAppointmentPanel();
     }
 
-    /**
-     * Draws the appointment panel.
-     */
+   
     public void drawAppointmentPanel() {
         setLayout(new SpringLayout());
         String[] labels = {"Nombre", "Lugar", "Inicia", "Termina", "Nota", ""};
@@ -79,10 +65,6 @@ public class AppointmentPanel extends JPanel {//duda
         );
     }
 
-    /**
-     * List the textfields for use with the for-loop in <code>drawAppointments</code>.
-     * @return ArrayList of textfields
-     */
     private ArrayList<JTextField> listTextFields() {//duda
         ArrayList<JTextField> textFieldList  = new ArrayList<>();
         textFieldList.add(nameTextField = new JTextField());
@@ -94,16 +76,12 @@ public class AppointmentPanel extends JPanel {//duda
         return textFieldList;
     }
 
-    /**
-     * Shows an message dialog when the name of an event isn't filled in.
-     */
+    
     private void showNameError() {//duda
        JOptionPane.showMessageDialog(null, "El nombre del evento debe ser completado.", "Nombre invalido", JOptionPane.ERROR_MESSAGE);
     }
 
-    /**
-     * Show an message dialog when the filled in times aren't valid.
-     */
+    
     private void showTimeError() {
         JOptionPane.showMessageDialog(null,
                "El tiempo inicial o el tiempo final es invalido.\n" +
@@ -112,20 +90,12 @@ public class AppointmentPanel extends JPanel {//duda
        JOptionPane.ERROR_MESSAGE);
     }
 
-    /**
-     * Shows an message dialog when an event is succesfully added.
-     * @param name the name of the event.
-     */
+    
     private void showSuccesMessage(String name) {
         JOptionPane.showMessageDialog(null, "El evento \""+name+"\" ha sido agregado con exito.", "Evento agregado", JOptionPane.PLAIN_MESSAGE);
     }
 
-    /**
-     * Sets the global formatted time variables, based on a time string
-     * @param time 4 digit time as a string
-     * @param timeType 0 or 1; startTime or endTime
-     * @return true or false; validated and setted or not
-     */
+    
     private Boolean setFormattedTime(String time, Integer timeType) {//duda
         Boolean validated = true;
         Time formattedTime = new Time(new Date().getTime());
@@ -156,14 +126,9 @@ public class AppointmentPanel extends JPanel {//duda
         return validated;
     }
 
-    /**
-     * Inner class. Triggers an actionlistener when the <code>addAppointmentButton</code> is clicked.
-     */
+    
     class saveAppointmentHandler implements ActionListener {
-        /**
-         * Opens new frame where a new appointment can be added.
-         * @param e
-         */
+        
         public void actionPerformed(ActionEvent e) {//duda como se usa 
             Boolean validName = true;
             Boolean validTimes = true;

@@ -1,7 +1,7 @@
 package edu.uam.vistas;
 
-import edu.uam.dominio.Appointment;
-import edu.uam.logicanegocio.CalendarManager;
+import edu.uam.controlador.ControladorCitasBD;
+import edu.uam.controlador.ControladorCalendario;
 
 import javax.swing.*;
 import javax.swing.border.*;
@@ -24,9 +24,9 @@ public class DayPanel extends JPanel {
     private CalendarPanel calendarPanel;
     public Integer day, month, year, index;
     private JButton viewAppointmentsButton, addAppointmentsButton;
-    public ArrayList<Appointment> appointments;
+    public ArrayList<ControladorCitasBD> controladorCitasBDs;
     private Date date;
-    private CalendarManager manager = new CalendarManager();
+    private ControladorCalendario manager = new ControladorCalendario();
     private Integer appointmentsCount;
 
     /**
@@ -44,8 +44,8 @@ public class DayPanel extends JPanel {
         this.calendarPanel = calendarPanel;
         this.index = index;
         date = calendarPanel.mainPanel.mainFrame.calendar.getDate(month, day, year);
-        appointments = manager.getAppointments(date);
-        appointmentsCount = appointments.size();
+        controladorCitasBDs = manager.getAppointments(date);
+        appointmentsCount = controladorCitasBDs.size();
 
         drawDayPanel();
     }
@@ -100,8 +100,8 @@ public class DayPanel extends JPanel {
     }
 
     /**
-     * Returns a color code based on the appointments counts.
-     * @param appointmentsCount the total appointments of a day
+     * Returns a color code based on the controladorCitasBDs counts.
+     * @param appointmentsCount the total controladorCitasBDs of a day
      * @return the color code
      */
     private String getAppointmentsBackground(Integer appointmentsCount) {
@@ -135,7 +135,7 @@ public class DayPanel extends JPanel {
             setBackground(Color.decode("#1DA04A"));
         }
 
-        // appointments
+        // controladorCitasBDs
         if (appointmentsCount > 0) {
             setBackground(Color.decode(getAppointmentsBackground(appointmentsCount)));
         }
@@ -175,7 +175,7 @@ public class DayPanel extends JPanel {
             dayLabel.setForeground(Color.decode("#B5B5B5"));
         }
 
-        // current day, active day and days with appointments
+        // current day, active day and days with controladorCitasBDs
         if (month == calendarPanel.mainPanel.mainFrame.calendar.month.getCurrentMonth() &&
             day == calendarPanel.mainPanel.mainFrame.calendar.day.getCurrentDay() &&
             year == calendarPanel.mainPanel.mainFrame.calendar.year.getCurrentYear() ||
@@ -210,8 +210,8 @@ public class DayPanel extends JPanel {
         weekLabel.setHorizontalAlignment(SwingConstants.LEFT);
         weekLabel.setForeground(Color.decode("#EF4A4A"));
 
-        // styling if has appointments
-        if (!appointments.isEmpty()) {
+        // styling if has controladorCitasBDs
+        if (!controladorCitasBDs.isEmpty()) {
             weekLabel.setForeground(Color.WHITE);
         }
 

@@ -1,42 +1,33 @@
-package edu.uam.dominio;
+package edu.uam.controlador;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * <code>CCalendar</code> represents the logical side of the calendar application.
- * It is mainly called by the <code>CalendarManager</code>.
- * @version 1.0
- * @see edu.uam.logicanegocio.CalendarManager
- */
-public class CCalendar {
+
+public class CCalendario {
     public CYear year;
-    public CMonth month;
-    public CWeek week;
-    public CDay day;
+    public CMes month;
+    public CSemana week;
+    public CDia day;
 
     /**
-     * Constructor of the CCalendar object.
+     * Constructor of the CCalendario object.
      */
-    public CCalendar() {
+    public CCalendario() {
         initCalendar();
     }
 
-    /**
-     * Inits a new calendar
-     */
-    void initCalendar() {//duda si son obetetos o variables declaradas
+    
+    void initCalendar() {
         year = new CYear();
-        month = new CMonth();
-        week = new CWeek();
-        day = new CDay();
+        month = new CMes();
+        week = new CSemana();
+        day = new CDia();
     }
 
-    /**
-     * Updates the active date by moving one month earlier.
-     */
-    public void toPrevMonth() {//duda
+   
+    public void toPrevMonth() {//Verifica cual es el mes anterior y lo activa 
         if (month.getActiveMonth() == 0) {
             // el mes activo es enero, cree uno nuevo en dicienbre 
             month.setActiveMonth(11);
